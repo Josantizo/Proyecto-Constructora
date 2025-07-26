@@ -3,8 +3,67 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Foursquare Remodeling LLC</title>
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    
+    @php
+        $currentPage = request()->segment(1) ?: 'home';
+        $seoData = App\Http\Controllers\SeoController::getSeoData($currentPage);
+    @endphp
+    
+    <!-- Primary Meta Tags -->
+    <title>{{ $seoData['title'] }}</title>
+    <meta name="title" content="{{ $seoData['title'] }}">
+    <meta name="description" content="{{ $seoData['description'] }}">
+    <meta name="keywords" content="{{ $seoData['keywords'] }}">
+    <meta name="author" content="Foursquare Remodeling LLC">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="English">
+    <meta name="revisit-after" content="7 days">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="{{ $seoData['canonical'] }}">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{ $seoData['canonical'] }}">
+    <meta property="og:title" content="{{ $seoData['og_title'] }}">
+    <meta property="og:description" content="{{ $seoData['og_description'] }}">
+    <meta property="og:image" content="{{ url($seoData['og_image']) }}">
+    <meta property="og:site_name" content="Foursquare Remodeling LLC">
+    <meta property="og:locale" content="en_US">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="{{ $seoData['canonical'] }}">
+    <meta property="twitter:title" content="{{ $seoData['og_title'] }}">
+    <meta property="twitter:description" content="{{ $seoData['og_description'] }}">
+    <meta property="twitter:image" content="{{ url($seoData['og_image']) }}">
+    
+    <!-- Additional SEO Meta Tags -->
+    <meta name="geo.region" content="US">
+    <meta name="geo.placename" content="United States">
+    <meta name="distribution" content="global">
+    <meta name="rating" content="general">
+    
+    <!-- Structured Data / Schema.org -->
+    <script type="application/ld+json">
+        {!! json_encode($seoData['schema']) !!}
+    </script>
+    
+    <!-- Preconnect to external domains for performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    
     @vite(['resources/css/app.css', 'resources/js/app.js'])
+    
+    <!-- SEO Tracking -->
+    @include('components.seo-tracking')
 </head>
 <body class="bg-gray-50 text-gray-900 min-h-screen flex flex-col">
     <!-- Header & Navigation -->

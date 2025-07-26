@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\SitemapController;
 use Illuminate\Support\Facades\Route;
 
 // Rutas personalizadas para el menú
@@ -22,6 +23,9 @@ Route::get('/contact', function () {
 Route::get('/handyman', function () {
     return view('handyman');
 });
+
+// Sitemap
+Route::get('/sitemap.xml', [SitemapController::class, 'index']);
 
 // Rutas Breeze
 Route::get('/dashboard', function () {
