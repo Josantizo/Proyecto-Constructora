@@ -75,6 +75,7 @@
                 <a href="/" class="hover:text-red-700 transition">Home</a>
                 <a href="/about" class="hover:text-red-700 transition">About</a>
                 <a href="/services" class="hover:text-red-700 transition">Services</a>
+                <a href="/payment" class="hover:text-red-700 transition">Payment</a>
                 <a href="/gallery" class="hover:text-red-700 transition">Gallery</a>
                 <a href="/handyman" class="hover:text-red-700 transition">Handyman</a>
                 <a href="/contact" class="hover:text-red-700 transition">Contact</a>
@@ -101,6 +102,7 @@
             <a href="/" class="block py-2 hover:text-red-700 transition">Home</a>
             <a href="/about" class="block py-2 hover:text-red-700 transition">About</a>
             <a href="/services" class="block py-2 hover:text-red-700 transition">Services</a>
+            <a href="/payment" class="block py-2 hover:text-red-700 transition">Payment</a>
             <a href="/gallery" class="block py-2 hover:text-red-700 transition">Gallery</a>
             <a href="/handyman" class="block py-2 hover:text-red-700 transition">Handyman</a>
             <a href="/contact" class="block py-2 hover:text-red-700 transition">Contact</a>
